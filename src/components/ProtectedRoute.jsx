@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 
 export default function ProtectedRoute({ children, allowedRole }) {
   const { user } = useAuth()
-  if (!user) return <Navigate to="/" replace />
-  if (allowedRole && user.role !== allowedRole) return <Navigate to="/" replace />
+  if (!user) return <Navigate to="/org/login" replace />
+  if (allowedRole && user.role !== allowedRole) return <Navigate to="/or/login" replace />
   return children 
 }
