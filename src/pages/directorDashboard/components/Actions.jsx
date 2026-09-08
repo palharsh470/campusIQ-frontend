@@ -4,6 +4,7 @@ import { actions } from "../utils/dashboardactions";
 export default function Actions() {
     return (
         <>
+
             <h2 className='text-white font-medium text-4xl md:text-[40px] mt-6'>Manage your organization</h2>
             <p className='text-base text-white/60 max-w-lg mt-2'>Create programs, build class groups, assign teachers and enroll students — all from one place.</p>
             <div className='w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10'>

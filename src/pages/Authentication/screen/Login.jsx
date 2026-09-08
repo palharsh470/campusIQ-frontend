@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import ActivityIndicator from "../../../components/ActivityIndicator"
-import { useLogin } from "../hooks/useFetch";
 import { useAuth } from "../../../context/AuthContext";
+import { useLogin } from "../hooks/useLogin";
 
 export default function Login() {
   const navigate = useNavigate()

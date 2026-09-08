@@ -1,4 +1,4 @@
-import api from "./axios"
+import api from "../../../api/axios"
 
 export function registerOrg(data){
     return api.post("/org/register/", data)

@@ -1,8 +1,9 @@
 import { useAuth } from "../../../context/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 export default function Logout() {
     const {logout} = useAuth()
-
+    const navigate = useNavigate()
     function handleLogout(){
         logout()
     }
@@ -18,7 +19,7 @@ export default function Logout() {
         </p>
 
         <div className="flex gap-3">
-          <button
+          <button onClick={()=>navigate(-1)}
             className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-100"
           >
             Cancel
