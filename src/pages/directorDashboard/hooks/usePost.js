@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { useAlert } from "../../../context/AlertContext";
 import { useNavigate } from "react-router-dom";
-import { addClassGroup } from "../api/classGroup";
 
-export function useAddClassGroup(){
+export function usePost(fn){
     const {showAlert} = useAlert()
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
-       async function handleAddClassGroup(e, form) {
+       async function handlePost(e, form) {
                 e.preventDefault()
                 setLoading(true)
                 try {
-                    const { data } = await addClassGroup(form)
-                    showAlert("success", "ClassGroup Added Successfully")
+                    const { data } = await fn(form)
+                    showAlert("success", `Data Added Successfully`)
                     navigate('/director')
                 }
                 catch (err) {
-                    showAlert("error", err.message ||  'Unable to add Class')
+                    showAlert("error", err.message ||  'Something went wrong')
                 }
                 finally {
                     setLoading(false)
@@ -25,7 +24,7 @@ export function useAddClassGroup(){
             }
     
         return {
-            loading, handleAddClassGroup
+            loading, handlePost
         }
     
     }

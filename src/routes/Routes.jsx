@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 
 const Programs = lazy(()=>import("../pages/directorDashboard/screen/Programs.jsx"))
+const ClassGroups = lazy(()=>import("../pages/directorDashboard/screen/ClassGroups.jsx"))
 const RegisterTeacher = lazy(() => import("../pages/directorDashboard/screen/RegisterTeacher.jsx"));
 const Actions = lazy(() => import("../pages/directorDashboard/components/Actions.jsx"));
 const Login = lazy(() => import("../pages/authentication/screen/Login.jsx"));
@@ -41,6 +42,7 @@ const Router = createBrowserRouter([
             { path: "teacher-assignments/new", element: withSuspense(TeacherAssignment) },
             { path: "students/new", element: withSuspense(StudentEnrollment) },
             { path: "teachers/new", element: withSuspense(RegisterTeacher) },
+            { path: "class-groups", element: withSuspense(ClassGroups) },
         ],
     },
 

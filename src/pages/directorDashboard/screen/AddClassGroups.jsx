@@ -1,16 +1,19 @@
 ﻿import { useState } from "react";
 import FormField from "../../../components/FormField";
 import TwoColumnFormLayout from "../../../components/TwoColumnFormLayoutLeft";
-import { useAddClassGroup } from "../hooks/useAddClassGroup";
 import { ClassGroupBenefits } from "../utils/ClassGroupBenefits";
+import { usePost } from "../hooks/usePost";
+import { addClassGroup } from "../api/classGroup";
+import { queryClient } from "../../../App";
 
 export default function AddClassGroups() {
     const [form, setForm] = useState({ course: '', year: '', branch: '', section:'' })
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-    const {loading, handleAddClassGroup} = useAddClassGroup()
+    const {loading, handlePost : handleAddClassGroup} = usePost(addClassGroup)
 
     async function handleSubmit(e) {
         await handleAddClassGroup(e, form)
+        queryClient.invalidateQueries(["getClassGroups"])
     }
 
     return (

@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom"
 import ActivityIndicator from "../../../components/ActivityIndicator"
-import { useListPrograms } from "../hooks/useListProgram"
+import { useFetch } from "../hooks/useFetch"
 import ProgramCard, { ProgramIcon } from "../components/ProgramCard"
-import { useDeleteProgram } from "../hooks/useDeleteProgram"
+import { useDelete } from "../hooks/useDelete"
 import { useCallback } from "react"
 import { useAuth } from "../../../context/AuthContext"
-import EditProgramModal from "../components/EditProgramModal"
-import { useEditProgram } from "../hooks/useEditProgram"
-
+import { useEdit } from "../hooks/useEdit"
+import { deleteProgram, editProgram, listProgram } from "../api/programs"
 
 const Programs = () => {
 
@@ -15,9 +14,9 @@ const Programs = () => {
     let isOwner = false
     if(user.role == "DIRECTOR")
         isOwner = true
-    const { programs, loading: listLoading, error, refetch } = useListPrograms()
-    const { loading: deleteLoading, handleDeleteProgram } = useDeleteProgram()
-    const {loading : editLoading, handleEditProgram} = useEditProgram()
+    const { data : programs, isLoading: listLoading, error, refetch } = useFetch(listProgram,"listPrograms")
+    const { loading: deleteLoading, handleDelete : handleDeleteProgram } = useDelete(deleteProgram)
+    const { handleEdit : handleEditProgram} = useEdit(editProgram)
 
     const handleDelete = useCallback(async (prgmId) => {
         await handleDeleteProgram(prgmId)

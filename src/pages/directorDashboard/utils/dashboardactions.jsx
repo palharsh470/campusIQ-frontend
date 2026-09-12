@@ -84,6 +84,40 @@ export const actions = [
                 />
             </svg>
         )
-    }
+    },
+    {
+    title: "View Class Groups",
+    description: "View every class group with its assigned teacher and current program.",
+    to: "/director/class-groups",
+    icon: (
+        <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect
+                x="4"
+                y="5"
+                width="16"
+                height="14"
+                rx="2"
+                stroke="#00A63E"
+                strokeWidth="1.8"
+            />
+            <path
+                d="M4 10H20M4 14.5H20"
+                stroke="#00A63E"
+                strokeWidth="1.4"
+            />
+            <path
+                d="M9 5V19"
+                stroke="#00A63E"
+                strokeWidth="1.4"
+            />
+        </svg>
+    )
+}
 
 ]

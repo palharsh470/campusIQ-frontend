@@ -2,17 +2,22 @@
 import FormField from "../../../components/FormField"
 import TwoColumnFormLayout from "../../../components/TwoColumnFormLayoutRight"
 import { ProgramBenefits } from "../utils/ProgramBenefits"
-import { useLaunchProgram } from "../hooks/useLaunchProgram"
+import { usePost } from "../hooks/usePost"
+import { launchProgram } from "../api/programs"
+import { queryClient } from "../../../App"
 
 
 const LaunchProgram = () => {
+
     const [form, setForm] = useState({title : '', description : '', duration_weeks : ''})
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-    const {loading, handleLaunchProgram} = useLaunchProgram()
+    const {loading, handlePost : handleLaunchProgram} = usePost(launchProgram)
+    
 
     async function handleSubmit(e){
        await handleLaunchProgram(e, form)
+        queryClient.invalidateQueries(["listPrograms"])
     }
     return (
         <TwoColumnFormLayout

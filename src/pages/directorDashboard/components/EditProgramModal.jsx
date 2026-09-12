@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import Modal from "../../../components/Modal"
 import FormField from "../../../components/FormField"
-import { useEditProgram } from "../hooks/useEditProgram"
 
 const EditProgramModal = ({ program, isOpen, onClose, handleEdit }) => {
     const [form, setForm] = useState({ title: '', description: '', duration_weeks: '' })
@@ -18,6 +17,7 @@ const EditProgramModal = ({ program, isOpen, onClose, handleEdit }) => {
 
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
     async function handleSubmit(e) {
+        e.preventDefault()
         await handleEdit(program.id, form)
         onClose()
     }
