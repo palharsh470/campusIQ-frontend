@@ -1,6 +1,21 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+                    *{font-family: "Geist", sans-serif; }
+                    h1{font-family: "Urbanist", sans-serif; }
+                    .marquee-inner {
+                        animation: marqueeScroll 35s linear infinite;
+                    }
+                    @keyframes marqueeScroll {
+                        0% {
+                            transform: translateX(0%);
+                        }
 
+                        100% {
+                            transform: translateX(-50%);
+                        }
+                    }
 * {
     font-family: "Poppins", sans-serif;
 }

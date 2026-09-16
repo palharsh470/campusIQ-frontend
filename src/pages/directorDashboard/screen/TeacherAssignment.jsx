@@ -27,9 +27,9 @@ const TeacherAssignment = () => {
     const programOptions = programs.map((t) => ({ value: t.id, label: t?.title?.toUpperCase() }))
     const {loading : assignLoading, handlePost : handleTeacherAssign} = usePost(postAssignTeacher)
     const {loading : updateLoading, handleEdit : handleClassGroupProgrm} = useEdit(updateClassGroup)
+console.log(program, classGroup, teacher)
 
    async function onSubmit(e) {
-
       await handleTeacherAssign(e, { "class_group" : classGroup, "teacher" : teacher})
       await handleClassGroupProgrm(classGroup, { "current_program" : program})
     queryClient.invalidateQueries(["getClassGroups"])

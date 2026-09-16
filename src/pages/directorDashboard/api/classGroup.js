@@ -6,6 +6,9 @@ export function addClassGroup(data) {
 export function getClassGroup() {
     return api.get("class-groups/")
 }
+export function retriveClassGroup(id) {
+    return api.get(`class-groups/${id}/`)
+}
 export function deleteClassGroup(id) {
     return api.delete(`class-groups/${id}/`)
 }

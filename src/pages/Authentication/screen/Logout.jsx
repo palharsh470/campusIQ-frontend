@@ -6,6 +6,7 @@ export default function Logout() {
     const navigate = useNavigate()
     function handleLogout(){
         logout()
+        navigate(-1)
     }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">

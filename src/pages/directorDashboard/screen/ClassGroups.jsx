@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom"
 import { getClassGroup } from "../api/classGroup"
 import { useFetch } from "../hooks/useFetch"
 
@@ -28,8 +29,8 @@ const ChevronIcon = () => (
 )
 
 const ClassGroups = () => {
-
-    const { data : classGroups , loading: listLoading, error, refetch } = useFetch(getClassGroup, "getClassGroups")
+    const navigate = useNavigate()
+    const { data: classGroups, loading: listLoading, error, refetch } = useFetch(getClassGroup, "getClassGroups")
 
     return (
         <div className="bg-black min-h-screen px-4 py-16">
@@ -40,10 +41,12 @@ const ClassGroups = () => {
                         <h1 className="text-3xl sm:text-4xl font-bold text-white"> Class Groups</h1>
                         <p className="text-sm text-zinc-500 mt-2">Every batch in your organization, with its teacher and active program.</p>
                     </div>
-                    <button className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-5 py-3 rounded-lg transition-colors shrink-0">
+                    <Link
+                        to="/director/class-groups/new"
+                        className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-5 py-3 rounded-lg transition-colors shrink-0">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#fff" strokeWidth="2" strokeLinecap="round" /></svg>
                         New Class Group
-                    </button>
+                    </Link>
                 </div>
 
                 <div className="flex flex-col gap-3">
@@ -85,9 +88,9 @@ const ClassGroups = () => {
                             </div>
 
                             <div className="flex items-center sm:w-[28%] sm:border-l sm:border-neutral-800 sm:pl-5">
-                                {cg.current_program ? (
+                                {cg.current_program_detail ? (
                                     <span className="text-xs text-green-500 bg-green-600/10 border border-green-600/20 px-3 py-1.5 rounded-full">
-                                        {cg.current_program.title}
+                                        {cg.current_program_detail.title}
                                     </span>
                                 ) : (
                                     <span className="text-xs text-zinc-500 bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-full">
