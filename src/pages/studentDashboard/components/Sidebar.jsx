@@ -1,62 +1,64 @@
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { ChatIcon, GridFourIcon } from "@phosphor-icons/react"
+import { ChatIcon, CopyIcon, FilesIcon, GridFourIcon, HouseSimpleIcon, ListBulletsIcon, PencilCircleIcon, PencilIcon, PencilLineIcon, PencilSimpleIcon, RecordIcon, VideoCameraIcon } from "@phosphor-icons/react"
 
 
 const Sidebar = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
+    const path = pathname.split("/")[2]
+    console.log(path)
 
     return (
         <div className="md:w-64 w-16 border-r border-neutral-800 text-base pt-4 flex flex-col shrink-0 h-full overflow-y-auto transition-all duration-300">
             <Link
                 to="home"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${pathname === "/home"
+                    ${path === "home"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
             >
-                <GridFourIcon size={25} />
+                <HouseSimpleIcon size={25} />
                 <p className="md:block hidden text-center">Home</p>
             </Link>
 
             <Link
                 to="lecture"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${pathname === "/lecture"
+                    ${path === "lecture"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
             >
-                <ChatIcon size={25} />
+                <VideoCameraIcon size={25} />
                 <p className="md:block hidden text-center">Lecture</p>
             </Link>
             <Link
                 to="/assignment"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${pathname === "/assignment"
+                    ${path === "assignment"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
             >
-                <ChatIcon size={25} />
+                <ListBulletsIcon size={25} />
                 <p className="md:block hidden text-center">Assignment</p>
             </Link>
             <Link
                 to="/material"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${pathname === "/material"
+                    ${path === "material"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
             >
-                <ChatIcon size={25} />
+                <FilesIcon size={25} />
                 <p className="md:block hidden text-center">Program Material</p>
             </Link>
             <Link
                 to="/doubts-room"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${pathname === "/doubt-room"
+                    ${path === "doubt-room"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
@@ -65,15 +67,15 @@ const Sidebar = () => {
                 <p className="md:block hidden text-center">Doubt Room</p>
             </Link>
             <Link
-                to="/time-table"
+                to="feedback"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${pathname === "/time-table"
+                    ${path === "feedback"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
             >
-                <ChatIcon size={25} />
-                <p className="md:block hidden text-center">Time Table</p>
+                <PencilSimpleIcon size={25} />
+                <p className="md:block hidden text-center">Feedback</p>
             </Link>
         </div>
     )

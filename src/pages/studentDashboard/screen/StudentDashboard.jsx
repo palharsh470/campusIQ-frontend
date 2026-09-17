@@ -32,7 +32,7 @@ const StudentDashboard = () => {
 
             <div className="flex-1 scrollbar-none overflow-y-auto">
                 <section className='bg-black'>
-                    <Outlet />
+                    <Outlet context={{enrollment : enrollment[0]}}/>
                 </section>
             </div>
         </div>

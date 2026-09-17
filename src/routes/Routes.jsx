@@ -23,6 +23,9 @@ const Lecture = lazy(() => import("../pages/teacherDashboard/screen/Lecture.jsx"
 const TeacherHome = lazy(() => import("../pages/teacherDashboard/screen/Home.jsx"))
 const StudentHome = lazy(() => import("../pages/studentDashboard/screen/Home.jsx"))
 const StudentLectureRoom = lazy(() => import("../pages/studentDashboard/screen/Lecture.jsx"))
+const LecturePreview = lazy(() => import("../pages/studentDashboard/screen/LecturePreview.jsx"))
+const TeacherFeedback = lazy(() => import("../pages/studentDashboard/screen/Feedback.jsx"))
+
 
 const withSuspense = (Component) => (
     <Suspense fallback={<div>Loading...</div>}>
@@ -61,12 +64,13 @@ const Router = createBrowserRouter([
         element: <ProtectedRoute allowedRole="TEACHER">{withSuspense(TeacherDashboard)}</ProtectedRoute>,
         children: [
             { path: "", element: withSuspense(TeacherActions) },
-            { path: "class-group/:classId",
-              element: withSuspense(ClassGroupDashboard),
-              children : [
-               { path: "home", element: withSuspense(TeacherHome) },
-               { path: "lecture", element: withSuspense(Lecture) },
-              ]
+            {
+                path: "class-group/:classId",
+                element: withSuspense(ClassGroupDashboard),
+                children: [
+                    { path: "home", element: withSuspense(TeacherHome) },
+                    { path: "lecture", element: withSuspense(Lecture) },
+                ]
             },
         ]
     },
@@ -76,7 +80,9 @@ const Router = createBrowserRouter([
         element: <ProtectedRoute allowedRole="STUDENT">{withSuspense(StudentDashboard)}</ProtectedRoute>,
         children: [
             { path: "home", element: withSuspense(StudentHome) },
-            { path: "lecture", element: withSuspense(StudentLectureRoom) },
+            {path: "lecture", element: withSuspense(StudentLectureRoom)},
+            { path: "lecture/preview", element: withSuspense(LecturePreview) },
+            { path: "feedback", element: withSuspense(TeacherFeedback) }
         ]
     },
     {

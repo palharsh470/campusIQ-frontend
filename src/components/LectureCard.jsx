@@ -1,4 +1,6 @@
+import React from "react"
 import { getYoutubeThumbnail } from "../utils/youtube"
+import { useNavigate } from "react-router-dom"
 
 
 const PlayIcon = () => (
@@ -7,14 +9,24 @@ const PlayIcon = () => (
     </svg>
 )
 
-const LectureCard = ({ lecture }) => {
+const LectureCard = React.memo(({ lecture }) => {
     const thumbnail = getYoutubeThumbnail(lecture.url)
+    const navigate = useNavigate()
+
+    function handleVideoPreview(url){
+        console.log(url)
+        navigate("preview", {
+            state : {
+                url : url
+            }
+        })
+    }
 
     return (
-        <a
-            href={lecture.url}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div
+            onClick={()=>{
+                handleVideoPreview(lecture.url)
+            }}
             className="group bg-neutral-900 border border-neutral-800 hover: rounded-2xl overflow-hidden flex flex-col transition-colors"
         >
             <div className="relative aspect-video bg-neutral-950">
@@ -42,8 +54,8 @@ const LectureCard = ({ lecture }) => {
                     <p className="text-xs text-zinc-500 mt-1 line-clamp-2">{lecture.description}</p>
                 )}
             </div>
-        </a>
+        </div>
     )
-}
+})
 
 export default LectureCard

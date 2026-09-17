@@ -2,6 +2,7 @@ import { Link, useLocation, Navigate, useOutletContext } from "react-router-dom"
 import { CalendarBlankIcon } from "@phosphor-icons/react"
 import { actions } from "../utils/DashboardActions"
 import { ordinal } from "../utils/helperFunctions"
+import { classLabel } from "../../../utils/format"
 
 export default function TeacherHome() {
    const { classGroup } = useOutletContext()
@@ -11,7 +12,6 @@ export default function TeacherHome() {
         return <Navigate to="/teacher" replace />
     }
 
-    const classLabel = `${classGroup.course} ${ordinal(classGroup.year)} year ${classGroup.branch}${classGroup.section ? ` - ${classGroup.section}` : ""}`
     const program = classGroup.current_program_detail
 
     return (
@@ -20,7 +20,7 @@ export default function TeacherHome() {
                 <button className="bg-neutral-800 text-sm text-white/80 px-6 py-2.5 rounded-full">{classLabel}</button>
 
                 <h1 className="text-white font-medium text-4xl md:text-[40px] mt-6">
-                    Welcome to {classLabel}
+                    Welcome to {classLabel(classGroup)}
                 </h1>
 
                 {program ? (
