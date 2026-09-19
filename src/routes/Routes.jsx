@@ -25,6 +25,8 @@ const StudentHome = lazy(() => import("../pages/studentDashboard/screen/Home.jsx
 const StudentLectureRoom = lazy(() => import("../pages/studentDashboard/screen/Lecture.jsx"))
 const LecturePreview = lazy(() => import("../pages/studentDashboard/screen/LecturePreview.jsx"))
 const TeacherFeedback = lazy(() => import("../pages/studentDashboard/screen/Feedback.jsx"))
+const Teachers = lazy(() => import("../pages/directorDashboard/screen/Teachers.jsx"))
+const TeachersFeedbackPreview = lazy(() => import("../pages/directorDashboard/screen/TeacherFeedback.jsx"))
 
 
 const withSuspense = (Component) => (
@@ -52,6 +54,8 @@ const Router = createBrowserRouter([
             { path: "students/new", element: withSuspense(StudentEnrollment) },
             { path: "teachers/new", element: withSuspense(RegisterTeacher) },
             { path: "class-groups", element: withSuspense(ClassGroups) },
+            { path: "teachers", element: withSuspense(Teachers) },
+            { path: "teachers/:teacher/feedback", element: withSuspense(TeachersFeedbackPreview) },
         ],
     },
 

@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
-export function useFetch(fn, key, time = 5 * 60 * 1000) {
+export function useFetch(fn, key, filter={}, time = 5 * 60 * 1000) {
 
     const {data, isLoading, error, refetch} = useQuery({
-        queryKey: [key],
+        queryKey: [key, filter],
         queryFn: async () => {
-                const { data } = await fn();
+                const { data } = await fn(filter);
                 return data  
         },
         refetchInterval: time,

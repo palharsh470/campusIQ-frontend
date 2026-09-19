@@ -118,6 +118,46 @@ export const actions = [
             />
         </svg>
     )
+},
+{
+    title: "View Teachers",
+    description: "View all registered teachers in your organization.",
+    to: "/director/teachers",
+    icon: (
+        <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M16 20V18C16 16.3431 14.6569 15 13 15H7C5.34315 15 4 16.3431 4 18V20"
+                stroke="#00A63E"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+            <circle
+                cx="10"
+                cy="8"
+                r="3"
+                stroke="#00A63E"
+                strokeWidth="1.8"
+            />
+            <path
+                d="M17 11C18.6569 11 20 9.65685 20 8C20 6.34315 18.6569 5 17 5"
+                stroke="#00A63E"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+            <path
+                d="M20 20V18C20 16.3431 18.6569 15 17 15"
+                stroke="#00A63E"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+        </svg>
+    )
 }
 
 ]

@@ -13,7 +13,7 @@ export function usePost(fn){
                 try {
                     const { data } = await fn(form)
                     showAlert("success", `Data Added Successfully`)
-                    navigate('student/home')
+                    navigate('/student/home')
                 }
                 catch (err) {
                     showAlert("error", err.message ||  'Something went wrong')
