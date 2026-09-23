@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAlert } from "../../../context/AlertContext";
+import { useAlert } from "../context/AlertContext";
 import { useNavigate } from "react-router-dom";
 
 export function usePost(fn){
@@ -13,7 +13,7 @@ export function usePost(fn){
                 try {
                     const { data } = await fn(form)
                     showAlert("success", `Data Added Successfully`)
-                    navigate('/director')
+                    navigate(-1)
                 }
                 catch (err) {
                     showAlert("error", err.message ||  'Something went wrong')

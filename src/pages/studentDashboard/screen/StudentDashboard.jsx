@@ -2,8 +2,9 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import Sidebar from "../components/Sidebar.jsx"
 import { getEnrolledStudent } from "../api/enrollments.js";
-import {useFetch} from "../../directorDashboard/hooks/useFetch.js"
 import Badge from "../../../components/Badge.jsx";
+import { useFetch } from "../../../hooks/useFetch.js";
+
 
 
 const StudentDashboard = () => {
@@ -32,7 +33,7 @@ const StudentDashboard = () => {
 
             <div className="flex-1 scrollbar-none overflow-y-auto">
                 <section className='bg-black'>
-                    <Outlet context={{enrollment : enrollment[0]}}/>
+                    <Outlet context={{enrollment : enrollment[0], classGroup : enrollment[0]?.class_group}}/>
                 </section>
             </div>
         </div>

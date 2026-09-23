@@ -10,8 +10,7 @@ import ActivityIndicator from "../../../components/ActivityIndicator";
 import { useAlert } from "../../../context/AlertContext";
 
 function TeacherFeedbackForm() {
-    const { enrollment } = useOutletContext()
-    const classGroup = enrollment?.class_group
+    const { enrollment , classGroup} = useOutletContext()
     const { showAlert } = useAlert()
     const [form, setForm] = useState({
         subject_knowledge: 0,

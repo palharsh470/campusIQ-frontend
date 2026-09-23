@@ -1,9 +1,9 @@
-import React from 'react'
-import { useFetch } from '../../directorDashboard/hooks/useFetch'
+
 import { getLectures } from '../api/lectures'
 import ActivityIndicator from "../../../components/ActivityIndicator"
 import {useAlert} from "../../../context/AlertContext"
 import LectureCard from '../../../components/LectureCard'
+import { useFetch } from '../../../hooks/useFetch'
 
 function Lecture() {
   const {data : lectures, loading, error, refetch} = useFetch(getLectures, "getLectures")

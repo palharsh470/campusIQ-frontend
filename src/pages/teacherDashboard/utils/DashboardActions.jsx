@@ -41,8 +41,8 @@ export const actions = [
     },
     {
         id: 4,
-        title: "Grade Submissions",
-        path: "",
+        title: "Doubt Room",
+        path: "doubts",
         description: "Review and grade work your students have already turned in.",
         badge: "12 new",
         icon: (

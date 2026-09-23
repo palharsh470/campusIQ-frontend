@@ -56,9 +56,9 @@ const Sidebar = () => {
                 <p className="md:block hidden text-center">Program Material</p>
             </Link>
             <Link
-                to="/doubts-room"
+                to="doubts"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${path === "doubt-room"
+                    ${path === "doubts"
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}

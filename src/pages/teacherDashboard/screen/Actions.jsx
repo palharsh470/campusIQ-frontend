@@ -4,8 +4,9 @@ import Sidebar from "../components/Sidebar"
 import { actions } from "../utils/DashboardActions"
 import { useAlert } from "../../../context/AlertContext"
 import { useNavigate } from "react-router-dom"
-import { useFetch } from "../../directorDashboard/hooks/useFetch"
+
 import { getClassGroup } from "../../directorDashboard/api/classGroup"
+import { useFetch } from "../../../hooks/useFetch"
 
 const Actions = () => {
     const { showAlert } = useAlert()

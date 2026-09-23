@@ -1,8 +1,9 @@
 import { Link, useNavigate, useLocation, replace } from "react-router-dom"
 import { ChatIcon, GridFourIcon } from "@phosphor-icons/react"
 import DropdownMenu from "./DropdownMenu"
-import { useFetch } from "../../directorDashboard/hooks/useFetch"
+
 import { getClassGroup } from "../../directorDashboard/api/classGroup"
+import { useFetch } from "../../../hooks/useFetch"
 
 const Sidebar = () => {
     const navigate = useNavigate()
