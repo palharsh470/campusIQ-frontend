@@ -10,6 +10,7 @@ const DoubtsLayout = lazy(() => import("../../doubts/screen/DoubtsLayout.jsx"))
 const DoubtsEmptyDetail = lazy(() => import("../../doubts/screen/DoubtEmptyDetail.jsx"))
 const DoubtDetail = lazy(() => import("../../doubts/screen/DoubtDetail.jsx"))
 const TeacherDashboard = lazy(() => import("../screen/TeacherDashboard.jsx"))
+const LecturePreview = lazy(() => import("../screen/LecturePreview.jsx"))
 
 export const teacherRoutes =
 {
@@ -23,6 +24,7 @@ export const teacherRoutes =
             children: [
                 { path: "home", element: withSuspense(TeacherHome) },
                 { path: "lecture", element: withSuspense(Lecture) },
+                { path: "lecture/preview", element: withSuspense(LecturePreview) },
                 {
                     path: "doubts",
                     element: withSuspense(DoubtsLayout),

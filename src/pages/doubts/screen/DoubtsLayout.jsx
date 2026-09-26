@@ -6,6 +6,7 @@ import DoubtCard from "../components/DoubtCard"
 import AskDoubtModal from "../components/AskDoubtModal"
 import EmptyState from "../components/EmptyState"
 import ActivityIndicator from "../../../components/ActivityIndicator"
+import {useDoubtSocket} from "../hooks/useDoubtSocket"
 
 const SearchIcon = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" /><path d="m20 20-3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
@@ -20,13 +21,13 @@ const ChatIcon = () => (
 const TABS = [{ key: "", label: "All" }, { key: "OPEN", label: "Open" }, { key: "RESOLVED", label: "Resolved" }]
 
 const DoubtsLayout = () => {
+    useDoubtSocket()
     const { user } = useAuth()
     const navigate = useNavigate()
     const [tab, setTab] = useState("")
     const [search, setSearch] = useState("")
     const [isAskOpen, setIsAskOpen] = useState(false)
     const {classGroup} = useOutletContext()
-console.log(classGroup)
     const { data: doubts, loading, error, refetch } = useDoubts({ status: tab, search, classGroup })
 
     return (

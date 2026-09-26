@@ -31,15 +31,16 @@ const ClassGroupDashboard = () => {
                 </button>
 
 
-                <Badge heading={`${classGroup.course} ${classGroup.year} year ${classGroup.branch} ${classGroup.section}`} subheading={classGroup?.current_program_detail?.title} />
+                <Badge heading={`${classGroup?.course} ${classGroup?.year} year ${classGroup?.branch} ${classGroup?.section}`} subheading={classGroup?.current_program_detail?.title} />
 
 
                 {actions.map((action, index) => (
                     <NavLink
                         key={action.id ?? index}
                         to={action.path}
+                        end = {action?.exact}
                         className={({ isActive }) => `flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                        ${false
+                        ${ isActive
                                 ? "bg-green-600/10 border-green-600 text-green-500"
                                 : "border-transparent hover:bg-neutral-900 text-zinc-500"
                             }`}

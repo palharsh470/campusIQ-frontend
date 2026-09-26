@@ -14,7 +14,7 @@ const LectureCard = React.memo(({ lecture }) => {
     const navigate = useNavigate()
 
     function handleVideoPreview(url){
-        console.log(url)
+  
         navigate("preview", {
             state : {
                 url : url

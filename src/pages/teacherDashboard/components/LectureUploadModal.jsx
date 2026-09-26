@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Modal from '../../../components/Modal'
 import ActivityIndicator from '../../../components/ActivityIndicator'
 import { useOutletContext } from 'react-router-dom'
-import { usePost } from '../../directorDashboard/hooks/usePost'
+import { usePost } from '../../../hooks/usePost'
 import { postLectures } from '../api/lectures'
 import { queryClient } from '../../../App'
 

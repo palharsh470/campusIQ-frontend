@@ -35,7 +35,7 @@ const DoubtDetail = () => {
     if (!doubt) return null
 
     const canParticipate = user?.role === "STUDENT" || user?.role === "TEACHER"
-
+   
     const onSend = async (e) => {
         e.preventDefault()
         if (!replyText.trim() && !replyImage) return
@@ -122,7 +122,15 @@ const DoubtDetail = () => {
                     />
                     <label className="text-zinc-500 hover:text-white cursor-pointer">
                         <input type="file" accept="image/*" className="hidden" onChange={(e) => setReplyImage(e.target.files[0])} />
-                        <ImageIcon />
+                        {replyImage ? (
+                            <div className="w-10 h-10 rounded-full overflow-hidden border border-zinc-700">
+                                <img
+                                    src={URL.createObjectURL(replyImage)}
+                                    alt="Selected"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        ) : <ImageIcon/>}
                     </label>
                     <button type="submit" disabled={sending} className="w-9 h-9 rounded-full bg-green-600 hover:bg-green-700 disabled:opacity-60 flex items-center justify-center text-white shrink-0">
                         <SendIcon />

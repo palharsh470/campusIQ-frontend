@@ -2,7 +2,9 @@ export const actions = [
     {
         id: 1,
         title: "Upload Lecture",
+        exact : false,
         path: "lecture",
+
         description: "Share recorded lecture, slides and study material with your classes.",
         badge: null,
         icon: (
@@ -16,7 +18,8 @@ export const actions = [
     {
         id: 2,
         title: "Take Attendance",
-        path: "",
+        exact : true,
+        path: "attendance",
         description: "Mark today's attendance for each of your classes in under a minute.",
         badge: "3 pending",
         icon: (
@@ -29,7 +32,8 @@ export const actions = [
     {
         id: 3,
         title: "Create Assignment",
-        path: "",
+        exact : true,
+        path: "assignment",
         description: "Set up a new assignment with due dates, files and instructions.",
         badge: null,
         icon: (
@@ -42,6 +46,7 @@ export const actions = [
     {
         id: 4,
         title: "Doubt Room",
+        exact : false,
         path: "doubts",
         description: "Review and grade work your students have already turned in.",
         badge: "12 new",
@@ -56,7 +61,8 @@ export const actions = [
     {
         id: 5,
         title: "Send Announcement",
-        path: "",
+        exact : true,
+        path: "announcement",
         description: "Notify students and parents about updates or reminders.",
         badge: null,
         icon: (
@@ -68,7 +74,8 @@ export const actions = [
     {
         id: 6,
         title: "View Timetable",
-        path: "",
+        exact : true,
+        path: "timetable",
         description: "Check your upcoming classes, rooms and free periods at a glance.",
         badge: "Today",
         icon: (
