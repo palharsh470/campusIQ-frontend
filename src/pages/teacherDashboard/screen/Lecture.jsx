@@ -8,6 +8,7 @@ import { useAlert } from "../../../context/AlertContext"
 import { useFetch } from "../hooks/useFetch"
 import EmptyState from "../components/EmptyState.jsx"
 import LectureCard from "../../../components/LectureCard.jsx"
+import  DayCalender  from "../../../components/DayCalender"
 
 const VideoIcon = () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +37,7 @@ const Lecture = () => {
                 <div className="flex flex-wrap items-center justify-center gap-5 md:gap-12">
                     <button onClick={() => setIsModalOpen(true)} type="button" className="px-6 py-2 active:scale-95 transition bg-green-500 rounded text-white shadow-lg shadow-green-500/30 text-sm font-medium">New</button>
                 </div>
-
+                <DayCalender/>
 
 
             </div>
@@ -54,7 +55,7 @@ const Lecture = () => {
                 ))}
             </div>
 
-            <LectureUploadModal isOpen={isModalOpen} handleClose={() => setIsModalOpen(false)} />
+          
 
         </div>
     )

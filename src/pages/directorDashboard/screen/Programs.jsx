@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import ActivityIndicator from "../../../components/ActivityIndicator"
-import { useFetch } from "../hooks/useFetch"
+import { useFetch } from "../../../hooks/useFetch"
 import ProgramCard, { ProgramIcon } from "../components/ProgramCard"
 import { useDelete } from "../hooks/useDelete"
 import { useCallback } from "react"

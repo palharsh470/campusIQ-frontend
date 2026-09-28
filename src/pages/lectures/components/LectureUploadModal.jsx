@@ -6,10 +6,10 @@ import { usePost } from '../../../hooks/usePost'
 import { postLectures } from '../api/lectures'
 import { queryClient } from '../../../App'
 
-function LectureUploadModal({ isOpen, handleClose, action = "Upload lecture" }) {
+function LectureUploadModal({ isOpen, handleClose, day_number, action = "Upload lecture" }) {
     const { classGroup } = useOutletContext()
 
-    const [form, setForm] = useState({ title: "", description: "", url: "", class_group: classGroup.id })
+    const [form, setForm] = useState({ title: "", day_number : day_number, description: "", url: "", class_group: classGroup.id })
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
     const { postLoading, handlePost: handleUploadLecture } = usePost(postLectures)
@@ -18,7 +18,7 @@ function LectureUploadModal({ isOpen, handleClose, action = "Upload lecture" }) 
      
         await handleUploadLecture(e, form)
         handleClose()
-        queryClient.invalidateQueries("getLectures", classGroup.id)
+        queryClient.invalidateQueries("getLectures", classGroup?.id)
     }
 
     return (

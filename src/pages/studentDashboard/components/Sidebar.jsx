@@ -1,27 +1,25 @@
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { ChatIcon, CopyIcon, FilesIcon, GridFourIcon, HouseSimpleIcon, ListBulletsIcon, PencilCircleIcon, PencilIcon, PencilLineIcon, PencilSimpleIcon, RecordIcon, VideoCameraIcon } from "@phosphor-icons/react"
+import { ChatIcon, FilesIcon, HouseSimpleIcon, ListBulletsIcon, PencilSimpleIcon, VideoCameraIcon } from "@phosphor-icons/react"
 
 
 const Sidebar = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const path = pathname.split("/")[2]
-    console.log(path)
 
     return (
         <div className="md:w-64 w-16 border-r border-neutral-800 text-base pt-4 flex flex-col shrink-0 h-full overflow-y-auto transition-all duration-300">
             <Link
-                to="home"
+                to=""
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
-                    ${path === "home"
+                    ${!path
                         ? "bg-green-600/10 border-green-600 text-green-500"
                         : "border-transparent hover:bg-neutral-900 text-zinc-500"
                     }`}
             >
                 <HouseSimpleIcon size={25} />
-                <p className="md:block hidden text-center">Home</p>
+                <p className="md:block hidden text-center">Home</p>    
             </Link>
-
             <Link
                 to="lecture"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
@@ -34,7 +32,7 @@ const Sidebar = () => {
                 <p className="md:block hidden text-center">Lecture</p>
             </Link>
             <Link
-                to="/assignment"
+                to="assignment"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
                     ${path === "assignment"
                         ? "bg-green-600/10 border-green-600 text-green-500"
@@ -45,7 +43,7 @@ const Sidebar = () => {
                 <p className="md:block hidden text-center">Assignment</p>
             </Link>
             <Link
-                to="/material"
+                to="material"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
                     ${path === "material"
                         ? "bg-green-600/10 border-green-600 text-green-500"

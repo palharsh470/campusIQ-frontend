@@ -4,13 +4,13 @@ import withSuspense from "../../../routes/withSuspense.jsx";
 
 const TeacherActions = lazy(() => import("../screen/Actions.jsx"))
 const ClassGroupDashboard = lazy(() => import("../screen/ClassGroupDashboard.jsx"))
-const Lecture = lazy(() => import("../screen/Lecture.jsx"))
+const Lecture = lazy(() => import("../../lectures/screen/Lecture.jsx"))
 const TeacherHome = lazy(() => import("../screen/Home.jsx"))
 const DoubtsLayout = lazy(() => import("../../doubts/screen/DoubtsLayout.jsx"))
 const DoubtsEmptyDetail = lazy(() => import("../../doubts/screen/DoubtEmptyDetail.jsx"))
 const DoubtDetail = lazy(() => import("../../doubts/screen/DoubtDetail.jsx"))
 const TeacherDashboard = lazy(() => import("../screen/TeacherDashboard.jsx"))
-const LecturePreview = lazy(() => import("../screen/LecturePreview.jsx"))
+const LecturePreview = lazy(() => import("../../lectures/screen/LecturePreview.jsx"))
 
 export const teacherRoutes =
 {
