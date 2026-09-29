@@ -11,6 +11,9 @@ const DoubtsEmptyDetail = lazy(() => import("../../doubts/screen/DoubtEmptyDetai
 const DoubtDetail = lazy(() => import("../../doubts/screen/DoubtDetail.jsx"))
 const TeacherDashboard = lazy(() => import("../screen/TeacherDashboard.jsx"))
 const LecturePreview = lazy(() => import("../../lectures/screen/LecturePreview.jsx"))
+const Announcement = lazy(() => import("../../announcement/screen/Announcement.jsx"))
+const Assignment = lazy(() => import("../../assignment/screen/Assignment.jsx"))
+const Attendance = lazy(() => import("../../attendance/screen/Attendance.jsx"))
 
 export const teacherRoutes =
 {
@@ -25,6 +28,9 @@ export const teacherRoutes =
                 { path: "home", element: withSuspense(TeacherHome) },
                 { path: "lecture", element: withSuspense(Lecture) },
                 { path: "lecture/preview", element: withSuspense(LecturePreview) },
+                { path: "announcement", element: withSuspense(Announcement) },
+                { path: "assignment", element: withSuspense(Assignment) },
+                { path: "attendance", element: withSuspense(Attendance) },
                 {
                     path: "doubts",
                     element: withSuspense(DoubtsLayout),

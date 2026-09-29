@@ -87,18 +87,4 @@ export const actions = [
             </svg>
         ),
     },
-    {
-        id: 6,
-        title: "View Timetable",
-        exact : true,
-        path: "timetable",
-        description: "Check your upcoming classes, rooms and free periods at a glance.",
-        badge: "Today",
-        icon: (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A63E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <path d="M16 2v4M8 2v4M3 10h18" />
-            </svg>
-        ),
-    },
 ]

@@ -60,7 +60,7 @@ function Lecture() {
                     <div className="flex-1">
                         <div className="flex flex-row items-center justify-between pr-5">
                             <p className="text-sm font-medium text-green-600 uppercase ">My Lectures</p>
-                            <p className="text-2xl font-medium text-green-100 uppercase ">DAY {dayNumber}</p>
+                            <p className="text-2xl self-center font-medium text-green-100 uppercase ">DAY {dayNumber}</p>
                             {
                                 user.role === "TEACHER" &&
                                 <div className="flex flex-wrap items-center justify-center gap-5 md:gap-12">
