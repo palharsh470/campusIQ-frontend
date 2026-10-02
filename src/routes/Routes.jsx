@@ -11,6 +11,7 @@ const Programs = lazy(() => import("../pages/directorDashboard/screen/Programs.j
 const RegisterOrg = lazy(() => import("../pages/authentication/screen/RegisterOrg.jsx"));
 const Login = lazy(() => import("../pages/authentication/screen/Login.jsx"));
 const Logout = lazy(() => import("../pages/authentication/screen/Logout.jsx"));
+const Assignment = lazy(() => import("../pages/assignment/screen/Assignment.jsx"));
 
 
 

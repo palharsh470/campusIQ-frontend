@@ -1,35 +1,68 @@
-import React from "react";
-import { ClockIcon, SparkleIcon } from "@phosphor-icons/react";
+import { useState } from "react"
+import { useAuth } from "../../../context/AuthContext"
+import AssignmentBuilder from "../components/AssignmentBuilder"
+import AssignmentTaker from "../components/AssignmentTaker"
+import AssignmentResult from "../components/AssignmentResult"
+import ActivityIndicator from "../../../components/ActivityIndicator"
+import { useLectureAssignment } from "../hooks/useLectureAssignment"
+import { useLocation, useParams } from "react-router-dom"
 
-function Assignment() {
-    return (
-        <div className="min-h-[70vh] flex items-center justify-center px-6">
-            <div className="max-w-md text-center">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900/80">
-                    <SparkleIcon className="h-9 w-9 text-indigo-400" />
+
+const Assignment = () => {
+    const { user } = useAuth()
+    const {lectureId} = useParams()
+    const { data: assignments, loading, refetch } = useLectureAssignment(lectureId)
+    const [showBuilder, setShowBuilder] = useState(false)
+    const [editing, setEditing] = useState(false)
+    const [justSubmitted, setJustSubmitted] = useState(null)
+
+    if (loading) return <div className="flex justify-center py-6"><ActivityIndicator /></div>
+    if (assignments.length == 0 && user.role === "STUDENT") return <div className="flex justify-center text-white py-6">No Assignment Available</div>
+
+    const assignment = assignments?.[0] ?? null  
+    const isTeacher = user?.role === "TEACHER"
+
+    if (showBuilder || editing) {
+        return (
+            <AssignmentBuilder
+                lectureId={lectureId}
+                existingAssignment={editing ? assignment : null}
+                onSaved={() => { setShowBuilder(false); setEditing(false); refetch() }}
+                onCancel={() => { setShowBuilder(false); setEditing(false) }}
+            />
+        )
+    }
+
+    if (!assignment) {
+        if (!isTeacher) return null
+        return (
+            <button
+                onClick={() => setShowBuilder(true)}
+                className="text-sm text-zinc-400 hover:text-white border border-dashed border-neutral-800 hover:border-neutral-600 rounded-xl px-4 py-3 w-full text-center transition-colors"
+            >
+                + Add a practice assignment for this lecture
+            </button>
+        )
+    }
+
+    if (isTeacher) {
+        return (
+            <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-4 flex items-center justify-between">
+                <div>
+                    <p className="text-sm text-white font-medium">{assignment.title}</p>
+                    <p className="text-xs text-zinc-500">{assignment.questions.length} questions</p>
                 </div>
-
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-400">
-                    <ClockIcon className="h-3.5 w-3.5" />
-                    Coming Soon
-                </div>
-
-                <h1 className="text-3xl font-semibold tracking-tight text-white">
-                    Assignments
-                </h1>
-
-                <p className="mt-3 text-sm leading-6 text-zinc-400">
-                    We're working on something useful for you. The
-                    assignments feature is currently under development
-                    and will be available soon.
-                </p>
-
-                <p className="mt-6 text-xs text-zinc-600">
-                    Stay tuned for updates.
-                </p>
+                <button onClick={() => setEditing(true)} className="text-sm text-green-500 hover:text-green-400">
+                    Edit
+                </button>
             </div>
-        </div>
-    );
+        )
+    }
+
+    if (justSubmitted) {
+        return <AssignmentResult result={justSubmitted} onRetake={() => setJustSubmitted(null)} />
+    }
+    return <AssignmentTaker assignment={assignment} onSubmitted={setJustSubmitted} />
 }
 
-export default Assignment;
+export default Assignment

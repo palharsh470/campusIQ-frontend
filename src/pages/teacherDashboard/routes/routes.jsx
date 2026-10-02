@@ -27,9 +27,10 @@ export const teacherRoutes =
             children: [
                 { path: "home", element: withSuspense(TeacherHome) },
                 { path: "lecture", element: withSuspense(Lecture) },
-                { path: "lecture/preview", element: withSuspense(LecturePreview) },
+                { path: "lecture/:lectureId/preview", element: withSuspense(LecturePreview) },
+                { path: "lecture/:lectureId/assignment", element: withSuspense(Assignment) },
                 { path: "announcement", element: withSuspense(Announcement) },
-                { path: "assignment", element: withSuspense(Assignment) },
+
                 { path: "attendance", element: withSuspense(Attendance) },
                 {
                     path: "doubts",

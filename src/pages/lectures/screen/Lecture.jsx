@@ -4,7 +4,7 @@ import { useAlert } from "../../../context/AlertContext"
 import LectureCard from '../../../components/LectureCard'
 import DayCalendar from '../../../components/DayCalender'
 import { useLectureCalendar } from "../hooks/useLectureCalendar"
-import { useOutletContext, useParams, useSearchParams } from "react-router-dom"
+import { useNavigate, useOutletContext, useParams, useSearchParams } from "react-router-dom"
 import { useDayLecture } from "../hooks/useDayLecture"
 import { useEffect, useState } from "react"
 import LectureUploadModal from "../components/LectureUploadModal"
@@ -17,6 +17,7 @@ function Lecture() {
     const [searchParams, setSearchParams] = useSearchParams();
     const { showAlert } = useAlert();
     const { user } = useAuth()
+    const navigate = useNavigate()
     const {
         data: daysLecture,
         calendarLoading,
@@ -36,8 +37,8 @@ function Lecture() {
                 { replace: true }
             );
         }
-    }, [dayNumber, currentDay, setSearchParams]);
-
+    }, [currentDay]);
+    //  [dayNumber, currentDay, setSearchParams]
     const {
         data: lectures,
         lecturesLoading,
@@ -70,44 +71,44 @@ function Lecture() {
                         </div>
                         <h1 className="text-3xl font-bold text-white mb-4">Recorded Lectures </h1>
                         {
-                            (!lectures?.length) && 
+                            (!lectures?.length) &&
 
                             <div className="flex min-h-100 items-center justify-center px-4">
-                        <div className="text-center">
-                            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-neutral-900 border border-neutral-800">
-                                <BookOpenIcon className="h-7 w-7 text-zinc-500" />
+                                <div className="text-center">
+                                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-neutral-900 border border-neutral-800">
+                                        <BookOpenIcon className="h-7 w-7 text-zinc-500" />
+                                    </div>
+
+                                    <h2 className="text-lg font-semibold text-zinc-200">
+                                        No lectures found
+                                    </h2>
+
+                                    <p className="mt-2 max-w-md text-sm text-zinc-500">
+                                        {user.role === "STUDENT"
+                                            ? "There are no lectures available for this day yet."
+                                            : "No lectures have been added for this day yet."}
+                                    </p>
+                                </div>
                             </div>
-
-                            <h2 className="text-lg font-semibold text-zinc-200">
-                                No lectures found
-                            </h2>
-
-                            <p className="mt-2 max-w-md text-sm text-zinc-500">
-                                {user.role === "STUDENT"
-                                    ? "There are no lectures available for this day yet."
-                                    : "No lectures have been added for this day yet."}
-                            </p>
-                        </div>
-                    </div>
                         }
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-                        {lectures?.map((lecture) => (
-                            <LectureCard key={lecture.id} lecture={lecture} />
-                        ))}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                            {lectures?.map((lecture) => (
+                                <LectureCard key={lecture.id} lecture={lecture} />
+                            ))}
+                        </div>
                     </div>
+                    <DayCalendar days={days} basePath={'student/leture'} onSelect={(day) => {
+                        setSearchParams({
+                            day_number: String(day),
+                        });
+                    }} selectedDay={dayNumber} />
+                    {calendarError && showAlert("error", calendarError.e)}
+                    {lecturesError && showAlert("error", lecturesError.e)}
                 </div>
-                <DayCalendar days={days} basePath={'student/leture'} onSelect={(day) => {
-                    setSearchParams({
-                        day_number: String(day),
-                    });
-                }} selectedDay={dayNumber} />
-                {calendarError && showAlert("error", calendarError.e)}
-                {lecturesError && showAlert("error", lecturesError.e)}
-            </div>
-            <LectureUploadModal isOpen={isModalOpen && user.role === "TEACHER"} handleClose={() => setIsModalOpen(false)} day_number={dayNumber} />
+                <LectureUploadModal isOpen={isModalOpen && user.role === "TEACHER"} handleClose={() => setIsModalOpen(false)} day_number={dayNumber} />
 
-        </div>
+            </div>
         </div >
     )
 }

@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom"
 
 export default function Logout() {
     const {logout} = useAuth()
+    const {user} = useAuth()
+    const role = user.role
     const navigate = useNavigate()
     function handleLogout(){
         logout()
-        navigate(-1)
+        if(role === "DIRECTOR")
+        navigate("/director")
+        else if(role === "TEACHER")
+        navigate("/teacher")
+        if(role === "STUDENT")
+        navigate("/student")
     }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">

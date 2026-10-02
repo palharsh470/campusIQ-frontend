@@ -8,17 +8,18 @@ const StudentHome = lazy(() => import("../screen/Home.jsx"))
 const StudentLectureRoom = lazy(() => import("../../lectures/screen/Lecture.jsx"))
 const LecturePreview = lazy(() => import("../../lectures/screen/LecturePreview.jsx"))
 const TeacherFeedback = lazy(() => import("../screen/Feedback.jsx"))
-const Assignment = lazy(()=>import("../../assignment/screen/Assignment.jsx"))
-const Attendance = lazy(()=>import("../../attendance/screen/Attendance.jsx"))
-const Material = lazy(()=>import("../../material/screen/Material.jsx"))
+const Assignment = lazy(() => import("../../assignment/screen/Assignment.jsx"))
+const Attendance = lazy(() => import("../../attendance/screen/Attendance.jsx"))
+const Material = lazy(() => import("../../material/screen/Material.jsx"))
 
 export const studentRoutes = {
     path: "/student",
     element: <ProtectedRoute allowedRole="STUDENT">{withSuspense(StudentDashboard)}</ProtectedRoute>,
     children: [
-        { index : true, element: withSuspense(StudentHome) },
+        { index: true, element: withSuspense(StudentHome) },
         { path: "lecture", element: withSuspense(StudentLectureRoom) },
-        { path: "lecture/preview", element: withSuspense(LecturePreview) },
+        { path: "lecture/:lectureId/preview", element: withSuspense(LecturePreview) },
+        { path: "lecture/:lectureId/assignment", element: withSuspense(Assignment) },
         { path: "feedback", element: withSuspense(TeacherFeedback) },
         { path: "assignment", element: withSuspense(Assignment) },
         { path: "attendance", element: withSuspense(Attendance) },
