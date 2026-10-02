@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import ProtectedRoute from "../../../components/ProtectedRoute";
+import ProtectedRoute from "../../../components/ProtectedRoute.jsx";
 import withSuspense from "../../../routes/withSuspense.jsx";
 
 const TeacherActions = lazy(() => import("../screen/Actions.jsx"))
