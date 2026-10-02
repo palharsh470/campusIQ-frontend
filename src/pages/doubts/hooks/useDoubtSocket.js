@@ -13,9 +13,9 @@ export function useDoubtSocket() {
         function connect() {
             const token = localStorage.getItem("access_token")
             if (!token) return
-
+            const wsHost = import.meta.env.VITE_WS_HOST || "localhost:8000"
             const protocol = window.location.protocol === "https:" ? "wss" : "ws"
-            socket = new WebSocket(`${protocol}://localhost:8000/ws/doubts/?token=${token}`)
+             socket = new WebSocket(`${protocol}://${wsHost}/ws/doubts/?token=${token}`)
 
             socket.onopen = () => {
                 reconnectDelay.current = 1000

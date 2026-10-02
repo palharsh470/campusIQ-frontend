@@ -1,7 +1,8 @@
 import axios from 'axios'
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: `${baseUrl}/api`,
 })
 
 api.interceptors.request.use((config) => {
@@ -29,7 +30,7 @@ async function ErrorContainer(error) {
       }
 
       const response = await axios.post(
-        `http://localhost:8000/api/token/refresh/`,
+        `${baseUrl}/api/token/refresh/`,
         {
           "refresh": refreshToken,
         }
