@@ -4,7 +4,7 @@ import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
 
 import { AuthProvider } from "./context/AuthContext";
 import { AlertProvider } from "./context/AlertContext";
-import Router from "./routes/Routes";
+import Router from "./routes/Routes.jsx";
 
 export const queryClient = new QueryClient()
 
