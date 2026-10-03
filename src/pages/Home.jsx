@@ -58,12 +58,14 @@ const Home = () => {
                         </a>
                         <button
                             onClick={()=>{
-                                if(user.role === "DIRECTOR")
+                                if(user?.role === "DIRECTOR")
                                     navigate("/director")
-                                else if(user.role === "TEACHER")
+                                else if(user?.role === "TEACHER")
                                     navigate("/teacher")
-                                else if(user.role === "STUDENT")
+                                else if(user?.role === "STUDENT")
                                     navigate("/student")
+                                else 
+                                    navigate("/org/login")
                             }}
                             className="text-sm hover:text-green-400 transition"
                         >
