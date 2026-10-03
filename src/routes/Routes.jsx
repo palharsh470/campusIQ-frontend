@@ -3,7 +3,7 @@ import { lazy } from "react";
 const Login = lazy(()=> import("../pages/Authentication/screen/Login.jsx"))
 const RegisterOrg = lazy(()=> import("../pages/Authentication/screen/RegisterOrg.jsx"))
 const Logout = lazy(()=>import("../pages/Authentication/screen/Logout.jsx"))
-import { teacherRoutes } from "../pages/teacherDashboard/routes/Routes.jsx";
+import { teacherRoutes } from "../pages/teacherDashboard/routes/routes.jsx";
 import withSuspense from "./withSuspense.jsx";
 import { studentRoutes } from "../pages/studentDashboard/routes/Routes.jsx";
 import { directorRoutes } from "../pages/directorDashboard/routes/Routes.jsx";
