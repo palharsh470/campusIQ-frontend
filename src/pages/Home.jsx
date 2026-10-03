@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
     const { user } = useAuth()
+    console.log(user)
     const [mobileOpen, setMobileOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -55,13 +56,43 @@ const Home = () => {
                         >
                             About
                         </a>
+                        <button
+                            onClick={()=>{
+                                if(user.role === "DIRECTOR")
+                                    navigate("/director")
+                                else if(user.role === "TEACHER")
+                                    navigate("/teacher")
+                                else if(user.role === "STUDENT")
+                                    navigate("/student")
+                            }}
+                            className="text-sm hover:text-green-400 transition"
+                        >
+                            Dashboard
+                        </button>
                     </div>
 
+                 
 
                     {user ? (
-                        <button className="bg-white text-black px-7 py-3 rounded-full" onClick={() => navigate("/logout")}>
+                        <div className=" flex gap-2 flex-row">
+                         <div className="hidden md:flex items-center gap-3 bg-green-950/70 border border-green-900 px-4 py-2 rounded-full">
+                            <div className="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center font-semibold">
+                                {user.username?.charAt(0).toUpperCase()}
+                            </div>
+
+                            <div>
+                                <p className="text-sm font-medium">
+                                    {user.username}
+                                </p>
+                                <p className="text-xs text-green-400 capitalize">
+                                    {user.role}
+                                </p>
+                            </div>
+                        </div>
+                        <button onClick={() => navigate("/logout")}>
                             Logout
                         </button>
+                        </div>
                     ) : (
                         <div className="flex gap-3">
                             <button className="bg-green-600 px-7 py-3 rounded-full" onClick={() => navigate("/org/login")}>
@@ -292,6 +323,7 @@ const Home = () => {
                     <div className="grid md:grid-cols-3 gap-5 mt-14">
 
                         <FeatureCard
+                   
                             title="For Students"
                             description="Access lectures, assignments, assessments, doubt solving, feedback, and placement-focused programs."
                         />
@@ -302,6 +334,7 @@ const Home = () => {
                         />
 
                         <FeatureCard
+                           
                             title="For Organizations"
                             description="Launch programs, manage departments, monitor student progress, and build a placement-ready ecosystem."
                         />
@@ -389,7 +422,7 @@ const Home = () => {
 
 const FeatureCard = ({ title, description }) => {
     return (
-        <div className="border border-slate-800 bg-slate-950 rounded-2xl p-7 hover:border-green-900 transition">
+        <div  className="border border-slate-800 bg-slate-950 rounded-2xl p-7 hover:border-green-900 transition">
             <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400">
                 ✦
             </div>

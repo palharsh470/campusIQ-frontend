@@ -27,7 +27,7 @@ export default function Logout() {
         </p>
 
         <div className="flex gap-3">
-          <button onClick={()=>navigate(-1)}
+          <button onClick={()=>navigate("/")}
             className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-100"
           >
             Cancel
