@@ -1,12 +1,15 @@
+import { useQueryClient } from "@tanstack/react-query"
 import { useAuth } from "../../../context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
 export default function Logout() {
     const {logout} = useAuth()
     const {user} = useAuth()
+    const queryClient = useQueryClient()
     const role = user?.role
     const navigate = useNavigate()
     function handleLogout(){
+        queryClient.clear()
         logout()
         navigate("/")
     }
