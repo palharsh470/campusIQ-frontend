@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { DotsThreeCircleIcon, DotsThreeIcon, DotsThreeVerticalIcon, ThreeDIcon, UserIcon } from "@phosphor-icons/react";
 import ActivityIndicator from "../../../components/ActivityIndicator";
 import TeacherListItem from "../components/TeacherListItem";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../../hooks/useFetch";
 import { getTeachers } from "../api/teacher";
 import { Link, useNavigate } from "react-router-dom";
 import TeacherActionsMenu from "../components/TeacherActionsMenu";

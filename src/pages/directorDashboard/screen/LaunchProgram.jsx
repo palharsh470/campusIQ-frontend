@@ -2,7 +2,7 @@
 import FormField from "../../../components/FormField"
 import TwoColumnFormLayout from "../../../components/TwoColumnFormLayoutRight"
 import { ProgramBenefits } from "../utils/ProgramBenefits"
-import { usePost } from "../hooks/usePost"
+import { usePost } from "../../../hooks/usePost"
 import { launchProgram } from "../api/programs"
 import { queryClient } from "../../../App"
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import FormField from "../../../components/FormField"
-import { addClassGroup, getClassGroup } from "../api/classGroup"
-import { useFetch } from "../hooks/useFetch"
-import { usePost } from "../hooks/usePost"
+import { getClassGroup } from "../api/classGroup"
+import { useFetch } from "../../../hooks/useFetch"
+import { usePost } from "../../../hooks/usePost"
 import ActivityIndicator from "../../../components/ActivityIndicator"
 import { enrollStudent } from "../api/student"
 

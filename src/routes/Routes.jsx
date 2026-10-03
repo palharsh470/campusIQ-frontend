@@ -10,8 +10,6 @@ import { directorRoutes } from "../pages/directorDashboard/routes/Routes.jsx";
 
 const Programs = lazy(() => import("../pages/directorDashboard/screen/Programs.jsx"))
 
-const Assignment = lazy(() => import("../pages/assignment/screen/Assignment.jsx"));
-
 const Router = createBrowserRouter([
     { path: "/org/login", element: withSuspense(<Login/>) },
     { path: "/org/register", element: withSuspense(<RegisterOrg/>) },

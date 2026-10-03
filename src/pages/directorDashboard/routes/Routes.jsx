@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import ProtectedRoute from "../../../components/ProtectedRoute";
 import withSuspense from "../../../routes/withSuspense.jsx";
-import doubtsRoutes from "../../doubts/routes/routes.jsx";
+import doubtsRoutes from "../../doubts/routes/Routes.jsx";
 
 const ClassGroups = lazy(() => import("../screen/ClassGroups.jsx"))
 const RegisterTeacher = lazy(() => import("../screen/RegisterTeacher.jsx"));

@@ -5,7 +5,7 @@ import {
 } from "@phosphor-icons/react";
 import FeedbackTable from "../components/FeedbackTable";
 import { getFeedback } from "../api/feedback";
-import { useRetrieve } from "../hooks/useRetrieve";
+import { useRetrieve } from "../../../hooks/useRetrieve";
 import { useLocation } from "react-router-dom";
 
 function TeacherFeedback() {

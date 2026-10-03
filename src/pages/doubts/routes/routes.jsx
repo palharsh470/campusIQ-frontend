@@ -1,5 +1,4 @@
 import { lazy } from "react"
-import ProtectedRoute from "../../../components/ProtectedRoute.jsx"
 import withSuspense from "../../../routes/withSuspense.jsx"
 
 const DoubtsLayout = lazy(() => import("../screen/DoubtsLayout.jsx"))

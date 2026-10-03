@@ -2,7 +2,7 @@ import { useState } from "react"
 import FormField from "../../../components/FormField"
 import TwoColumnFormLayout from "../../../components/TwoColumnFormLayoutLeft"
 import { benefits } from "../utils/TeacherBenefits"
-import { usePost } from "../hooks/usePost"
+import { usePost } from "../../../hooks/usePost"
 import { postTeacher } from "../api/teacher"
 import { queryClient } from "../../../App"
 

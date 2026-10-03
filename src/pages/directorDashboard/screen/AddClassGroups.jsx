@@ -2,7 +2,7 @@
 import FormField from "../../../components/FormField";
 import TwoColumnFormLayout from "../../../components/TwoColumnFormLayoutLeft";
 import { ClassGroupBenefits } from "../utils/ClassGroupBenefits";
-import { usePost } from "../hooks/usePost";
+import { usePost } from "../../../hooks/usePost";
 import { addClassGroup } from "../api/classGroup";
 import { queryClient } from "../../../App";
 

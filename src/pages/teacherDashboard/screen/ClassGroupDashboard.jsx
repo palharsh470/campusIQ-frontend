@@ -5,7 +5,7 @@ import { actions } from "../utils/DashboardActions";
 import { retriveClassGroup } from "../../directorDashboard/api/classGroup";
 import ActivityIndicator from "../../../components/ActivityIndicator";
 import Badge from "../../../components/Badge"
-import { useRetrieve } from "../hooks/useRetrieve";
+import { useRetrieve } from "../../../hooks/useRetrieve";
 
 const ClassGroupDashboard = () => {
     const { user } = useAuth()
