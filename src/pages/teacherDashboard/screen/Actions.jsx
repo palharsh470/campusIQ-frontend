@@ -1,5 +1,5 @@
 import { useState } from "react"
-import ClassGroupModal from "../components/ClassgroupModal"
+import ClassGroupModal from "../components/ClassGroupModal.jsx"
 import Sidebar from "../components/Sidebar"
 import { actions } from "../utils/DashboardActions"
 import { useAlert } from "../../../context/AlertContext"
