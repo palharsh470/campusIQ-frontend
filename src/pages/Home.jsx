@@ -1,35 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
+    const { user } = useAuth()
     const [mobileOpen, setMobileOpen] = useState(false);
     const navigate = useNavigate();
 
     return (
         <>
-            <style>
-                {`
-                    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
-                    * {
-                        font-family: "Poppins", sans-serif;
-                    }
-
-                    html {
-                        scroll-behavior: smooth;
-                    }
-                `}
-            </style>
 
             <section
                 id="home"
                 className="relative min-h-screen flex flex-col items-center bg-black text-white overflow-hidden bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat"
             >
 
-                {/* Navbar */}
+
                 <nav className="z-50 flex items-center justify-between w-full py-5 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur">
-                    
-                    {/* Logo */}
+
                     <button
                         onClick={() => navigate("/")}
                         className="text-2xl font-bold tracking-tight"
@@ -37,7 +26,7 @@ const Home = () => {
                         <span className="text-green-500">Campus</span>IQ
                     </button>
 
-                    {/* Desktop Navigation */}
+
                     <div className="hidden md:flex items-center gap-8 border border-green-900 bg-green-950/70 px-10 py-3 rounded-full">
                         <a
                             href="#home"
@@ -68,15 +57,23 @@ const Home = () => {
                         </a>
                     </div>
 
-                    {/* Login */}
-                    <button
-                        onClick={() => navigate("/org/login")}
-                        className="hidden md:block bg-green-600 hover:bg-green-700 active:scale-95 transition px-6 py-2 text-white rounded-full"
-                    >
-                        Login
-                    </button>
 
-                    {/* Mobile menu */}
+                    {user ? (
+                        <button className="bg-white text-black px-7 py-3 rounded-full" onClick={() => navigate("/logout")}>
+                            Logout
+                        </button>
+                    ) : (
+                        <div className="flex gap-3">
+                            <button className="bg-green-600 px-7 py-3 rounded-full" onClick={() => navigate("/org/login")}>
+                                Login
+                            </button>
+
+                            <button onClick={() => navigate("/org/register")}>
+                                Get Started
+                            </button>
+                        </div>
+                    )}
+
                     <button
                         onClick={() => setMobileOpen(true)}
                         className="md:hidden text-white"
@@ -97,12 +94,9 @@ const Home = () => {
                         </svg>
                     </button>
                 </nav>
-
-                {/* Mobile Navigation */}
                 <div
-                    className={`fixed inset-0 z-50 bg-black/90 backdrop-blur flex flex-col items-center justify-center gap-8 text-lg md:hidden transition-transform duration-300 ${
-                        mobileOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                    className={`fixed inset-0 z-50 bg-black/90 backdrop-blur flex flex-col items-center justify-center gap-8 text-lg md:hidden transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"
+                        }`}
                 >
                     <a href="#home" onClick={() => setMobileOpen(false)}>
                         Home
@@ -138,7 +132,6 @@ const Home = () => {
                     </button>
                 </div>
 
-                {/* Announcement */}
                 <div className="flex items-center gap-2 rounded-full bg-green-950/80 border border-green-900 px-2 py-2 mt-28">
                     <span className="bg-green-600 text-xs px-3 py-1 rounded-full">
                         CAMPUSIQ
@@ -149,7 +142,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Hero Heading */}
+
                 <h1 className="text-center text-4xl md:text-6xl lg:text-7xl leading-tight mt-6 font-semibold max-w-4xl px-5">
                     Empowering{" "}
                     <span className="text-green-500">
@@ -164,7 +157,7 @@ const Home = () => {
                     assessments, doubt solving, and placement readiness.
                 </p>
 
-                {/* CTA */}
+
                 <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
 
                     <button
@@ -196,13 +189,12 @@ const Home = () => {
 
                 </div>
 
-                {/* Dashboard Preview */}
+
                 <div className="relative mt-20 mx-5 w-full max-w-5xl">
                     <div className="absolute inset-0 bg-green-500/20 blur-3xl rounded-full" />
 
                     <div className="relative border border-green-900/70 bg-slate-950/80 rounded-2xl p-3 shadow-2xl">
-                        
-                        {/* Fake browser bar */}
+
                         <div className="flex items-center gap-2 px-3 py-2 border-b border-slate-800">
                             <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
                             <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -211,7 +203,7 @@ const Home = () => {
                             <div className="ml-4 h-6 flex-1 rounded-md bg-slate-900 border border-slate-800" />
                         </div>
 
-                        {/* Dashboard mockup */}
+
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">
 
                             <div className="hidden md:block md:col-span-1 space-y-3">
@@ -274,7 +266,7 @@ const Home = () => {
             </section>
 
 
-            {/* Features */}
+
             <section
                 id="features"
                 className="bg-black text-white py-24 px-6 md:px-16 lg:px-24"
@@ -319,7 +311,7 @@ const Home = () => {
             </section>
 
 
-            {/* How it works */}
+
             <section
                 id="how-it-works"
                 className="bg-slate-950 text-white py-24 px-6 md:px-16 lg:px-24"
@@ -361,7 +353,7 @@ const Home = () => {
             </section>
 
 
-            {/* CTA */}
+
             <section
                 id="about"
                 className="bg-black text-white py-24 px-6 text-center"
