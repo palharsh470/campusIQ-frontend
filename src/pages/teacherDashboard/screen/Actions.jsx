@@ -1,12 +1,12 @@
 import { useState } from "react"
 import ClassGroupModal from "../components/ClassGroupModal.jsx"
-import Sidebar from "../components/Sidebar"
-import { actions } from "../utils/DashboardActions"
-import { useAlert } from "../../../context/AlertContext"
+import Sidebar from "../components/Sidebar.jsx"
+import { actions } from "../utils/DashboardActions.jsx"
+import { useAlert } from "../../../context/AlertContext.jsx"
 import { useNavigate } from "react-router-dom"
 
-import { getClassGroup } from "../../directorDashboard/api/classGroup"
-import { useFetch } from "../../../hooks/useFetch"
+import { getClassGroup } from "../../directorDashboard/api/classGroup.js"
+import { useFetch } from "../../../hooks/useFetch.js"
 
 const Actions = () => {
     const { showAlert } = useAlert()

@@ -1,5 +1,5 @@
-import BenefitItem from "../pages/directorDashboard/components/BenefitItem"
-import ActivityIndicator from "./ActivityIndicator"
+import BenefitItem from "../pages/directorDashboard/components/BenefitItem.jsx"
+import ActivityIndicator from "./ActivityIndicator.jsx"
 
 const TwoColumnFormLayout = ({ eyebrow, heading, description, benefits, watermark, formTitle, submitLabel, error, children, handleSubmit, loading}) => {
     return (

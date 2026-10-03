@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import { getYoutubeThumbnail } from "../utils/youtube";
+import { getYoutubeThumbnail } from "../utils/youtube.js";
 import { useNavigate } from "react-router-dom";
 
 const PlayIcon = () => (

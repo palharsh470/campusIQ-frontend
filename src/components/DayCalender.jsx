@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import DayButton from "./DayButton"
+import DayButton from "./DayButton.jsx"
 
 const PAGE_SIZE = 30;
 const pageOf = (day) => (day ? Math.floor((day - 1) / PAGE_SIZE) : 0)
