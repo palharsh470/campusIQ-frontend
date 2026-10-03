@@ -1,8 +1,6 @@
 import { Link, useLocation, Navigate, useOutletContext } from "react-router-dom"
 import { CalendarBlankIcon } from "@phosphor-icons/react"
-import { actions } from "../utils/DashboardActions"
-import { ordinal } from "../utils/helperFunctions"
-import { classLabel } from "../../../utils/format"
+import { classLabel } from "../../../utils/format.js"
 
 export default function TeacherHome() {
    const { classGroup } = useOutletContext()

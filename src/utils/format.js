@@ -1,4 +1,4 @@
-import { ordinal } from "../pages/teacherDashboard/utils/helperFunctions";
+import { ordinal } from "../pages/teacherDashboard/utils/helperFunctions.js";
 
 export const classLabel = (classGroup)=> `${classGroup?.course} ${ordinal(classGroup?.year)} year ${classGroup?.branch}${classGroup?.section ? ` - ${classGroup?.section}` : ""}`
 

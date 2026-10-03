@@ -1,6 +1,6 @@
 import React from "react";
 import { BoundingBoxIcon, CaretDownIcon } from "@phosphor-icons/react";
-import { ordinal } from "../utils/helperFunctions";
+import { ordinal } from "../utils/helperFunctions.js";
 
 const getClassGroupLabel = (group) =>
     `${group.course} ${ordinal(group.year)} year ${group.branch} - ${group.section}`;

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { MagnifyingGlassIcon, UsersThreeIcon } from '@phosphor-icons/react'
-import Modal from '../../../components/Modal'
-import { ordinal } from '../utils/helperFunctions'
+import Modal from '../../../components/Modal.jsx'
+import { ordinal } from '../utils/helperFunctions.js'
 
 const getClassGroupLabel = (group) =>
     `${group.course} ${ordinal(group.year)} year ${group.branch} - ${group.section}`
