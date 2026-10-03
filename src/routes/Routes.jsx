@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
+const Home = lazy(()=> import("../pages/Home.jsx"))
 const Login = lazy(()=> import("../pages/Authentication/screen/Login.jsx"))
 const RegisterOrg = lazy(()=> import("../pages/Authentication/screen/RegisterOrg.jsx"))
 const Logout = lazy(()=>import("../pages/Authentication/screen/Logout.jsx"))
@@ -11,6 +12,7 @@ import { directorRoutes } from "../pages/directorDashboard/routes/Routes.jsx";
 const Programs = lazy(() => import("../pages/directorDashboard/screen/Programs.jsx"))
 
 const Router = createBrowserRouter([
+    { path: "/", element: withSuspense(Home) },
     { path: "/org/login", element: withSuspense(Login) },
     { path: "/org/register", element: withSuspense(RegisterOrg) },
     directorRoutes,
