@@ -11,8 +11,8 @@ import { directorRoutes } from "../pages/directorDashboard/routes/Routes.jsx";
 const Programs = lazy(() => import("../pages/directorDashboard/screen/Programs.jsx"))
 
 const Router = createBrowserRouter([
-    { path: "/org/login", element: withSuspense(<Login/>) },
-    { path: "/org/register", element: withSuspense(<RegisterOrg/>) },
+    { path: "/org/login", element: withSuspense(Login) },
+    { path: "/org/register", element: withSuspense(RegisterOrg) },
     directorRoutes,
     teacherRoutes,
     studentRoutes,
