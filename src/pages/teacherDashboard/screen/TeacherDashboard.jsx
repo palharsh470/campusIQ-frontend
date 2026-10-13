@@ -1,5 +1,6 @@
 import { useNavigate, Outlet, Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
+import NotificationToasts from "../components/NotificationToasts";
 
 const TeacherDashboard = () => {
   const { user } = useAuth()
@@ -12,6 +13,7 @@ const TeacherDashboard = () => {
           <div className="text-white font-bold text-2xl">CampusIQ</div>
         </Link>
         <div className="flex items-center gap-5 text-zinc-500">
+          <NotificationToasts />
           <p>Hi! {user.first_name} {user.last_name}</p>
           <button onClick={() => navigate("/logout")} className="border border-neutral-800 rounded-full text-sm px-4 py-1 text-zinc-300 hover:border-neutral-600 transition-colors">Logout</button>
         </div>

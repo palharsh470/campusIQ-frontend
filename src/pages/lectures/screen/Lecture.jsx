@@ -38,7 +38,7 @@ function Lecture() {
             );
         }
     }, [currentDay]);
-    //  [dayNumber, currentDay, setSearchParams]
+
     const {
         data: lectures,
         lecturesLoading,

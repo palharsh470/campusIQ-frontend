@@ -51,7 +51,7 @@ const ClassGroupDashboard = () => {
                 ))}
             </div>
 
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 h-full w-full overflow-y-auto">
                 <Outlet context={{ classGroup: classGroup }} />
             </div>
         </div >

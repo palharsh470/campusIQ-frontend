@@ -18,6 +18,7 @@ export function useDoubtSocket() {
              socket = new WebSocket(`${protocol}://${wsHost}/ws/doubts/?token=${token}`)
 
             socket.onopen = () => {
+               console.log("WS open", new Date().toISOString())
                 reconnectDelay.current = 1000
             }
 
@@ -43,7 +44,8 @@ export function useDoubtSocket() {
                 }
             }
 
-            socket.onclose = () => {
+            socket.onclose = (e) => {
+                console.log("WS closed", e.code, e.reason, e.wasClean)
                 if (stopped) return
                 reconnectTimer = setTimeout(connect, reconnectDelay.current)
                 reconnectDelay.current = Math.min(reconnectDelay.current * 2, 30000)
