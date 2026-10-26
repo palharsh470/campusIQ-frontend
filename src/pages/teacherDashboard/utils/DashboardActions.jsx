@@ -31,20 +31,20 @@ export const actions = [
             </svg>
         ),
     },
-    {
-        id: 2,
-        title: "Take Attendance",
-        exact : true,
-        path: "attendance",
-        description: "Mark today's attendance for each of your classes in under a minute.",
-        badge: "3 pending",
-        icon: (
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A63E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 11l3 3L22 4" />
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-            </svg>
-        ),
-    },
+    // {
+    //     id: 2,
+    //     title: "Take Attendance",
+    //     exact : true,
+    //     path: "attendance",
+    //     description: "Mark today's attendance for each of your classes in under a minute.",
+    //     badge: "3 pending",
+    //     icon: (
+    //         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A63E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    //             <path d="M9 11l3 3L22 4" />
+    //             <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+    //         </svg>
+    //     ),
+    // },
    
     {
         id: 4,

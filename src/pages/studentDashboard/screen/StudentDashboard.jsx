@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar.jsx"
 import { getEnrolledStudent } from "../api/enrollments.js";
 import Badge from "../../../components/Badge.jsx";
 import { useFetch } from "../../../hooks/useFetch.js";
+import NotificationBell from "../../notification/screen/NotificationBell.jsx";
+import UserBadge from "../../../components/UserBadge.jsx";
 
 
 
@@ -20,11 +22,9 @@ const StudentDashboard = () => {
         <Link to="/teacher">
           <div className="text-white font-bold text-2xl">CampusIQ</div>
         </Link>
+        <NotificationBell/>
         <Badge heading={`${classGroup?.course} ${classGroup?.branch} ${classGroup?.year} year ${classGroup?.section}`} subheading={classGroup?.current_program_detail?.title}/>
-        <div className="flex items-center gap-5 text-zinc-500">
-          <p>Hi! {user.first_name} {user.last_name}</p>
-          <button onClick={() => navigate("/logout")} className="border border-neutral-800 rounded-full text-sm px-4 py-1 text-zinc-300 hover:border-neutral-600 transition-colors">Logout</button>
-        </div>
+        <UserBadge firstName={user.first_name} lastName={user.last_name}/>
       </div>
 
       <div className="flex-1 min-h-0 overflow-hidden">

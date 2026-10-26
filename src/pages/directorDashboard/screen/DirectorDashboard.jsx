@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom"
+import Header from "../components/Header"
 
 const DirectorDashboard = () => {
 
 
     return (
-        <section className='bg-black min-h-screen py-16 px-4'>
-            <div className='flex items-center flex-col justify-center text-center'>
-                
+        <section className='bg-black min-h-screen'>
+            <div className='flex p-10 flex-col'>
+               
                 <Outlet/>
             </div>
         </section>

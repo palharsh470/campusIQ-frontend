@@ -16,8 +16,6 @@ const Home = () => {
                 id="home"
                 className="relative min-h-screen flex flex-col items-center bg-black text-white overflow-hidden bg-[url(https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/green-gradient-bg.svg)] bg-top bg-no-repeat"
             >
-
-
                 <nav className="z-50 flex items-center justify-between w-full py-5 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur">
 
                     <button

@@ -12,7 +12,7 @@ const AddClassGroups = lazy(() => import("../screen/AddClassGroups.jsx"));
 const TeacherAssignment = lazy(() => import("../screen/TeacherAssignment.jsx"));
 const StudentEnrollment = lazy(() => import("../screen/StudentEnrollment.jsx"));
 const Teachers = lazy(() => import("../screen/Teachers.jsx"))
-const TeachersFeedbackPreview = lazy(() => import("../screen/TeacherFeedback.jsx"))
+const TeachersFeedbackPreview = lazy(() => import("../../feedback/screen/TeacherFeedback.jsx"))
 
 export const directorRoutes = {
     path: "/director",

@@ -42,7 +42,7 @@ const Sidebar = () => {
                 <ListBulletsIcon size={25} />
                 <p className="md:block hidden text-center">Assignment</p>
             </Link>
-            <Link
+            {/* <Link
                 to="material"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors
                     ${path === "material"
@@ -52,7 +52,7 @@ const Sidebar = () => {
             >
                 <FilesIcon size={25} />
                 <p className="md:block hidden text-center">Program Material</p>
-            </Link>
+            </Link> */}
             <Link
                 to="doubts"
                 className={`flex items-center py-3 px-4 gap-3 border-r-4 md:border-r-[6px] transition-colors

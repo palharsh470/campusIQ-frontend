@@ -6,6 +6,7 @@ import { useFetch } from "../../../hooks/useFetch";
 import { getTeachers } from "../api/teacher";
 import { Link, useNavigate } from "react-router-dom";
 import TeacherActionsMenu from "../components/TeacherActionsMenu";
+import BackBtn from "../../../components/BackBtn";
 
 
 
@@ -34,7 +35,11 @@ function TeacherList() {
 
     return (
         <div className="relative">
-            <h1 className="text-green-600  text-2xl font-semibold">Registered Teachers</h1>
+            <div className="flex-1 flex">
+
+            <BackBtn/>
+            <h1 className="text-green-600 text-center m-auto text-2xl font-semibold">Registered Teachers</h1>
+            </div>
             <div className="overflow-hidden flex-1 w-[90vw] m-10 rounded-xl border border-neutral-800 bg-neutral-950">
 
                 <div className="hidden border-b  border-neutral-800 bg-neutral-900 px-5 py-3 md:grid md:grid-cols-5 md:gap-6">

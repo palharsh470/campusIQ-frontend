@@ -36,7 +36,7 @@ export default function TeacherActionsMenu({ teacher }) {
                     >
                         Show Feedbacks
                     </Link>
-                    <button
+                    {/* <button
                         type="button"
                         onClick={() => setOpen(false)}
                         className="block w-full text-left px-4 py-2 text-white hover:bg-gray-500/10 cursor-pointer"
@@ -56,7 +56,7 @@ export default function TeacherActionsMenu({ teacher }) {
                         className="block w-full text-left px-4 py-2 hover:bg-red-500/10 text-red-500 cursor-pointer"
                     >
                         Suspend
-                    </button>
+                    </button> */}
                 </div>
             )}
         </div>

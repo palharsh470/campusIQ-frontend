@@ -33,7 +33,7 @@ console.log(program, classGroup, teacher)
       await handleTeacherAssign(e, { "class_group" : classGroup, "teacher" : teacher})
       await handleClassGroupProgrm(classGroup, { "current_program" : program})
     queryClient.invalidateQueries(["getClassGroups"])
-   }
+   }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
     return (
         <TwoColumnFormLayout
